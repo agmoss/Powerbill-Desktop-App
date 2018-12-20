@@ -25,7 +25,6 @@ namespace PowerBill
         private string getCustName()
         {
             String boxVal = Convert.ToString(txtCustName.Text);
-
             return boxVal;
         }
 
@@ -46,11 +45,9 @@ namespace PowerBill
             {
                 //Obtain kWh
                 return Convert.ToInt32(txtAcctNum.Text);
-
             }
 
             return 0;
-
         }
 
         private double getPeakKwh()
@@ -125,59 +122,6 @@ namespace PowerBill
         }
 
         /// <summary>
-        /// Calcuation methods
-        /// </summary>
-
-        //Obtain total charge based on customer type and kWh
-        private double charge()
-        {
-            //Industrial Customer
-            if (rbIndustrial.Checked)
-            {
-                //Call the seperate industrial charge function
-                return industrialCharge();
-            }
-            //Commercial Customer
-            else if (rbCommercial.Checked)
-            {
-
-                return 60 + getKwh() % 1000 * 0.045;                
-            }
-            //Residential Customer
-            else if (rbResidential.Checked)
-            {
-                return 6 + 0.052 * getKwh();
-            }
-            else
-            {
-                return 0;
-            }
-        }
-
-        //Calculate the industrial charge
-        private double industrialCharge()
-        {
-            //If there is a blank string, replace it with 0 
-            string peakKwh = Validator.removeBlankString(txtPeakKwh.Text);
-            string nonPeakKwh = Validator.removeBlankString(txtNonPeakKwh.Text);
-
-            //Inputs must be positive and at least one kWh arg must be non 0
-            if (Validator.isProvided(txtPeakKwh, txtNonPeakKwh) &&
-                Validator.isNonNegInt(peakKwh, txtPeakKwh, "Peak kWh") &&
-                Validator.isNonNegInt(nonPeakKwh, txtNonPeakKwh, "Non Peak kWh"))
-            {
-                int peakInt = Convert.ToInt32(peakKwh);
-                int nonPeakInt = Convert.ToInt32(nonPeakKwh);
-                double peakCharge = 76 + peakInt % 1000 * 0.065;
-                double nonPeakCharge = 40 + nonPeakInt % 1000 * 0.028;
-                return peakCharge + nonPeakCharge;
-            }
-            //error 
-            return 0;
-        }
-
-
-        /// <summary>
         /// FileIO
         /// </summary>
 
@@ -212,20 +156,15 @@ namespace PowerBill
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
             CustomerData.Customer newCust = getCustomerObject();
             lstCustomers.Items.Add(newCust.ToString() + ", " + newCust.CalculateCharge());
             updateStats();
-
         }
 
         private void calcCharge_Click(object sender, EventArgs e)
         {
-            //Call the charge amount main function
-            double chargeAmount = charge();
-
-            //Display the total charge
-            txtCharge.Text = chargeAmount.ToString("f2");
+            CustomerData.Customer newCust = getCustomerObject();
+            txtCharge.Text = newCust.CalculateCharge().ToString("f2");
         }
 
         private void ChargeForm_Load(object sender, EventArgs e)
