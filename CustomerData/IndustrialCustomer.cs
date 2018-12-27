@@ -14,7 +14,7 @@ namespace CustomerData
         private double nonPeakKwh;
 
         //Properties
-        public char CustType { get => custType; set => custType = value; }
+        public char CustType { get => custType;}
         public double PeakKwh { get => peakKwh; set => peakKwh = value; }
         public double NonPeakKwh { get => nonPeakKwh; set => nonPeakKwh = value; }
 

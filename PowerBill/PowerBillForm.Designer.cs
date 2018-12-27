@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblKwh = new System.Windows.Forms.Label();
             this.txtKwh = new System.Windows.Forms.TextBox();
             this.calcCharge = new System.Windows.Forms.Button();
@@ -62,19 +63,21 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblKwh
             // 
             this.lblKwh.AutoSize = true;
             this.lblKwh.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.lblKwh.Location = new System.Drawing.Point(98, 353);
+            this.lblKwh.Location = new System.Drawing.Point(125, 359);
             this.lblKwh.Name = "lblKwh";
             this.lblKwh.Size = new System.Drawing.Size(32, 15);
             this.lblKwh.TabIndex = 0;
@@ -104,7 +107,7 @@
             // txtCharge
             // 
             this.txtCharge.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCharge.Location = new System.Drawing.Point(306, 345);
+            this.txtCharge.Location = new System.Drawing.Point(331, 351);
             this.txtCharge.Name = "txtCharge";
             this.txtCharge.Size = new System.Drawing.Size(100, 29);
             this.txtCharge.TabIndex = 3;
@@ -113,7 +116,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(314, 327);
+            this.label3.Location = new System.Drawing.Point(333, 330);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 15);
             this.label3.TabIndex = 0;
@@ -174,7 +177,7 @@
             // txtPeakKwh
             // 
             this.txtPeakKwh.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPeakKwh.Location = new System.Drawing.Point(188, 330);
+            this.txtPeakKwh.Location = new System.Drawing.Point(188, 338);
             this.txtPeakKwh.Name = "txtPeakKwh";
             this.txtPeakKwh.Size = new System.Drawing.Size(100, 25);
             this.txtPeakKwh.TabIndex = 10;
@@ -183,7 +186,7 @@
             // 
             this.lblPeakKwh.AutoSize = true;
             this.lblPeakKwh.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.lblPeakKwh.Location = new System.Drawing.Point(70, 338);
+            this.lblPeakKwh.Location = new System.Drawing.Point(97, 343);
             this.lblPeakKwh.Name = "lblPeakKwh";
             this.lblPeakKwh.Size = new System.Drawing.Size(60, 15);
             this.lblPeakKwh.TabIndex = 11;
@@ -201,7 +204,7 @@
             // 
             this.lblNonPeakKwh.AutoSize = true;
             this.lblNonPeakKwh.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.lblNonPeakKwh.Location = new System.Drawing.Point(42, 365);
+            this.lblNonPeakKwh.Location = new System.Drawing.Point(69, 374);
             this.lblNonPeakKwh.Name = "lblNonPeakKwh";
             this.lblNonPeakKwh.Size = new System.Drawing.Size(88, 15);
             this.lblNonPeakKwh.TabIndex = 11;
@@ -212,7 +215,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(67, 27);
+            this.label1.Location = new System.Drawing.Point(114, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(265, 45);
             this.label1.TabIndex = 12;
@@ -235,7 +238,7 @@
             this.btnExit.BackColor = System.Drawing.Color.DarkGray;
             this.btnExit.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnExit.Location = new System.Drawing.Point(754, 27);
+            this.btnExit.Location = new System.Drawing.Point(788, 12);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(67, 41);
             this.btnExit.TabIndex = 2;
@@ -431,6 +434,16 @@
             this.panel2.Size = new System.Drawing.Size(394, 387);
             this.panel2.TabIndex = 16;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.SlateGray;
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.txtNumCust);
+            this.panel3.Location = new System.Drawing.Point(0, 343);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(394, 44);
+            this.panel3.TabIndex = 17;
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -442,15 +455,9 @@
             this.label10.TabIndex = 12;
             this.label10.Text = "Database Info";
             // 
-            // panel3
+            // errorProvider1
             // 
-            this.panel3.BackColor = System.Drawing.Color.SlateGray;
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.txtNumCust);
-            this.panel3.Location = new System.Drawing.Point(0, 343);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(394, 44);
-            this.panel3.TabIndex = 17;
+            this.errorProvider1.ContainerControl = this;
             // 
             // ChargeForm
             // 
@@ -489,6 +496,7 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -532,6 +540,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 

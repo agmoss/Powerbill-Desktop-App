@@ -13,8 +13,8 @@ namespace CustomerData
         private double kwh;
 
         //Properties
-        public char CustType { get => custType; set => custType = value; }
-        public double Kwh { get => kwh; set => kwh = value; }
+        public char CustType { get => custType;}
+        public double Kwh { get => kwh; set => kwh = value;}
 
 
         //Constructor

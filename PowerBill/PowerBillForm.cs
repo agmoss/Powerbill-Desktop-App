@@ -19,106 +19,31 @@ namespace PowerBill
         }
 
         /// <summary>
-        /// Access form elements and validate
+        /// Instantiate Customer Object
         /// </summary>
-
-        private string getCustName()
-        {
-            String boxVal = Convert.ToString(txtCustName.Text);
-            return boxVal;
-        }
-
-        private double getKwh()
-        {
-            if (Validator.isNonNegDouble(txtKwh, "kWh"))
-            {
-                //Obtain kWh
-                return Convert.ToDouble(txtKwh.Text);
-            }
-
-            return 0;
-        }
-
-        private int getAccountNumber()
-        {
-            if (Validator.isNonNegInt(txtAcctNum, "AccountNumber"))
-            {
-                //Obtain kWh
-                return Convert.ToInt32(txtAcctNum.Text);
-            }
-
-            return 0;
-        }
-
-        private double getPeakKwh()
-        {
-            if (Validator.isNonNegDouble(txtPeakKwh, "Peak Kwh"))
-            {
-                //Obtain kWh
-                return Convert.ToDouble(txtPeakKwh.Text);
-            }
-
-            return 0;
-        }
-
-        private double getNonPeakKwh()
-        {
-            if (Validator.isNonNegDouble(txtPeakKwh, "AccountNumber"))
-            {
-                //Obtain kWh
-                return Convert.ToDouble(txtPeakKwh.Text);
-            }
-
-            return 0;
-        }
-
-        //Obtain total charge based on customer type and kWh
-        private char getCustType()
-        {
-
-            //Commercial Customer
-            if (rbCommercial.Checked)
-            {
-                return 'C';
-            }
-            //Residential Customer
-            else if (rbIndustrial.Checked)
-            {
-                return 'I';
-            }
-            //Industrial Customer
-            else //Default residential customer
-            {
-                return 'R';
-            }
-
-        }
 
         public CustomerData.Customer getCustomerObject()
         {
-            char custType = getCustType();
 
-
-            if (custType == 'C')
+            if (rbCommercial.Checked)
             {
                 //Instantate new Commercial customer
-                CustomerData.CommercialCustomer newCust = new CustomerData.CommercialCustomer(getAccountNumber(), getCustName(), getKwh());
+                CustomerData.CommercialCustomer newCust = new CustomerData.CommercialCustomer(Convert.ToInt32(txtAcctNum.Text), Convert.ToString(txtCustName.Text), Convert.ToDouble(txtKwh.Text));
                 return newCust;
 
             }
-            else if (custType == 'I')
+            else if (rbIndustrial.Checked)
             {
                 //Instantiate new Industrial customer
-                CustomerData.IndustrialCustomer newCust = new CustomerData.IndustrialCustomer(getAccountNumber(), getCustName(), getPeakKwh(), getNonPeakKwh());
+                CustomerData.IndustrialCustomer newCust = new CustomerData.IndustrialCustomer(Convert.ToInt32(txtAcctNum.Text), Convert.ToString(txtCustName.Text), Convert.ToDouble(txtPeakKwh.Text), Convert.ToDouble(txtNonPeakKwh.Text));
                 return newCust;
             }
             else
             {
                 //Instantiate new Residential customer
-                CustomerData.ResidentialCustomer newCust = new CustomerData.ResidentialCustomer(getAccountNumber(), getCustName(), getKwh());
+                CustomerData.ResidentialCustomer newCust = new CustomerData.ResidentialCustomer(Convert.ToInt32(txtAcctNum.Text), Convert.ToString(txtCustName.Text), Convert.ToDouble(txtKwh.Text));
                 return newCust;
             }
-
         }
 
         /// <summary>
@@ -127,27 +52,28 @@ namespace PowerBill
 
         public void populateLstBox()
         {
-
-            string [] readText = FileIO.getTxtLines();
+            string[] readText = FileIO.getTxtLines();
 
             foreach (string line in readText)
 
             {
                 lstCustomers.Items.Add(line);
             }
-
         }
+
+        /// <summary>
+        /// Customer Statistics
+        /// </summary>
 
         public void updateStats()
         {
             txtNumCust.Text = lstCustomers.Items.Count.ToString();
 
-            Dictionary<string,double> CurrentCharge = Statistics.totalCharge(lstCustomers.Items.OfType<string>().ToArray());
+            Dictionary<string, double> CurrentCharge = Statistics.totalCharge(lstCustomers.Items.OfType<string>().ToArray());
             txtSumCharge.Text = CurrentCharge["total"].ToString();
             txtIcharge.Text = CurrentCharge["industrial"].ToString();
             txtCcharge.Text = CurrentCharge["commercial"].ToString();
             txtRcharge.Text = CurrentCharge["residential"].ToString();
-
         }
 
         /// <summary>
@@ -156,15 +82,23 @@ namespace PowerBill
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            CustomerData.Customer newCust = getCustomerObject();
-            lstCustomers.Items.Add(newCust.ToString() + ", " + newCust.CalculateCharge());
-            updateStats();
+            if (IsValid())
+            {
+                errorProvider1.Clear();
+                CustomerData.Customer newCust = getCustomerObject();
+                lstCustomers.Items.Add(newCust.ToString() + ", " + newCust.CalculateCharge());
+                updateStats();
+            }
         }
 
         private void calcCharge_Click(object sender, EventArgs e)
         {
-            CustomerData.Customer newCust = getCustomerObject();
-            txtCharge.Text = newCust.CalculateCharge().ToString("f2");
+            if (IsValid())
+            {
+                errorProvider1.Clear();
+                CustomerData.Customer newCust = getCustomerObject();
+                txtCharge.Text = newCust.CalculateCharge().ToString("f2");
+            }
         }
 
         private void ChargeForm_Load(object sender, EventArgs e)
@@ -191,7 +125,7 @@ namespace PowerBill
 
             foreach (Control c in currentForm.Controls)
             {
-                if (c is TextBox && c.Enabled ==true)
+                if (c is TextBox && c.Enabled == true)
                 {
                     TextBox tb = c as TextBox;
                     if (tb.Text != string.Empty) //Textbox has content
@@ -240,5 +174,76 @@ namespace PowerBill
             txtPeakKwh.Visible = true;
             txtNonPeakKwh.Visible = true;
         }
+
+        /// <summary>
+        /// Validator
+        /// </summary>
+
+        private bool IsValid()
+        {
+            bool no_error = true;
+
+            if (txtCustName.Text == string.Empty)
+            {
+                errorProvider1.SetError(txtCustName, "Customer name is missing");
+                no_error = false;
+            }
+            else
+            {
+                // Clear all Error Messages
+                try
+                {
+                    int i = Convert.ToInt32(txtAcctNum.Text);
+                }
+                catch
+                {
+                    errorProvider1.Clear(); 
+                    errorProvider1.SetError(txtAcctNum, "Account number must be an integer");
+                    return false;
+                }
+
+                //Now differientate between industrial and non industrial customers
+                if (!rbIndustrial.Checked)
+                {
+                    try
+                    {
+                        double j = Convert.ToDouble(txtKwh.Text);
+                    }
+                    catch
+                    {
+                        errorProvider1.Clear(); 
+                        errorProvider1.SetError(txtKwh, "Please enter a valid KWH value");
+                        return false;
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        double b = Convert.ToDouble(txtPeakKwh.Text);
+                    }
+                    catch
+                    {
+                        errorProvider1.Clear(); 
+                        errorProvider1.SetError(txtPeakKwh, "Please enter a valid peak KWH value");
+                        return false;
+                    }
+                    try
+                    {
+                        double t = Convert.ToDouble(txtNonPeakKwh.Text);
+                    }
+                    catch
+                    {
+                        errorProvider1.Clear(); 
+                        errorProvider1.SetError(txtNonPeakKwh, "Please enter a valid non peak KWH value");
+                        return false;
+                    }
+                }
+            }
+            return no_error;
+
+        }                
     }
 }
+
+

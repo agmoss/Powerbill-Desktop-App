@@ -4,3 +4,8 @@ C:\Users\gordon\source\repos\PowerBill\CustomerData\obj\Debug\CustomerData.cspro
 C:\Users\gordon\source\repos\PowerBill\CustomerData\obj\Debug\CustomerData.csproj.CoreCompileInputs.cache
 C:\Users\gordon\source\repos\PowerBill\CustomerData\obj\Debug\CustomerData.dll
 C:\Users\gordon\source\repos\PowerBill\CustomerData\obj\Debug\CustomerData.pdb
+C:\Users\718775\source\repos\Powerbill-Desktop-App\CustomerData\bin\Debug\CustomerData.dll
+C:\Users\718775\source\repos\Powerbill-Desktop-App\CustomerData\bin\Debug\CustomerData.pdb
+C:\Users\718775\source\repos\Powerbill-Desktop-App\CustomerData\obj\Debug\CustomerData.csproj.CoreCompileInputs.cache
+C:\Users\718775\source\repos\Powerbill-Desktop-App\CustomerData\obj\Debug\CustomerData.dll
+C:\Users\718775\source\repos\Powerbill-Desktop-App\CustomerData\obj\Debug\CustomerData.pdb

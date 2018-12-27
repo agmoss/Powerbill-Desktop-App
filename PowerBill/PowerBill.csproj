@@ -56,7 +56,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Statistics.cs" />
-    <Compile Include="Validator.cs" />
     <EmbeddedResource Include="PowerBillForm.resx">
       <DependentUpon>PowerBillForm.cs</DependentUpon>
     </EmbeddedResource>
