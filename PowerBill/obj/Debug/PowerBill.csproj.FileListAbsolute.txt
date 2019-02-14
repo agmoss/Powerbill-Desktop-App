@@ -47,3 +47,16 @@ C:\Users\718775\source\repos\Powerbill-Desktop-App\PowerBill\obj\Debug\PowerBill
 C:\Users\718775\source\repos\Powerbill-Desktop-App\PowerBill\obj\Debug\PowerBill.csproj.CopyComplete
 C:\Users\718775\source\repos\Powerbill-Desktop-App\PowerBill\obj\Debug\PowerBill.exe
 C:\Users\718775\source\repos\Powerbill-Desktop-App\PowerBill\obj\Debug\PowerBill.pdb
+C:\Users\718775\Documents\Powerbill-Desktop-App\PowerBill\bin\Debug\PowerBill.exe.config
+C:\Users\718775\Documents\Powerbill-Desktop-App\PowerBill\bin\Debug\PowerBill.exe
+C:\Users\718775\Documents\Powerbill-Desktop-App\PowerBill\bin\Debug\PowerBill.pdb
+C:\Users\718775\Documents\Powerbill-Desktop-App\PowerBill\bin\Debug\CustomerData.dll
+C:\Users\718775\Documents\Powerbill-Desktop-App\PowerBill\bin\Debug\CustomerData.pdb
+C:\Users\718775\Documents\Powerbill-Desktop-App\PowerBill\obj\Debug\PowerBill.csprojAssemblyReference.cache
+C:\Users\718775\Documents\Powerbill-Desktop-App\PowerBill\obj\Debug\PowerBill.ChargeForm.resources
+C:\Users\718775\Documents\Powerbill-Desktop-App\PowerBill\obj\Debug\PowerBill.Properties.Resources.resources
+C:\Users\718775\Documents\Powerbill-Desktop-App\PowerBill\obj\Debug\PowerBill.csproj.GenerateResource.cache
+C:\Users\718775\Documents\Powerbill-Desktop-App\PowerBill\obj\Debug\PowerBill.csproj.CoreCompileInputs.cache
+C:\Users\718775\Documents\Powerbill-Desktop-App\PowerBill\obj\Debug\PowerBill.csproj.CopyComplete
+C:\Users\718775\Documents\Powerbill-Desktop-App\PowerBill\obj\Debug\PowerBill.exe
+C:\Users\718775\Documents\Powerbill-Desktop-App\PowerBill\obj\Debug\PowerBill.pdb

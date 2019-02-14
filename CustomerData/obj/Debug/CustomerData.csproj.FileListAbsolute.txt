@@ -9,3 +9,9 @@ C:\Users\718775\source\repos\Powerbill-Desktop-App\CustomerData\bin\Debug\Custom
 C:\Users\718775\source\repos\Powerbill-Desktop-App\CustomerData\obj\Debug\CustomerData.csproj.CoreCompileInputs.cache
 C:\Users\718775\source\repos\Powerbill-Desktop-App\CustomerData\obj\Debug\CustomerData.dll
 C:\Users\718775\source\repos\Powerbill-Desktop-App\CustomerData\obj\Debug\CustomerData.pdb
+C:\Users\718775\Documents\Powerbill-Desktop-App\CustomerData\bin\Debug\CustomerData.dll
+C:\Users\718775\Documents\Powerbill-Desktop-App\CustomerData\bin\Debug\CustomerData.pdb
+C:\Users\718775\Documents\Powerbill-Desktop-App\CustomerData\obj\Debug\CustomerData.csprojAssemblyReference.cache
+C:\Users\718775\Documents\Powerbill-Desktop-App\CustomerData\obj\Debug\CustomerData.csproj.CoreCompileInputs.cache
+C:\Users\718775\Documents\Powerbill-Desktop-App\CustomerData\obj\Debug\CustomerData.dll
+C:\Users\718775\Documents\Powerbill-Desktop-App\CustomerData\obj\Debug\CustomerData.pdb
